@@ -1,28 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import LoginHome from './Login/LoginHome';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <LinearGradient
-      // Les couleurs du dégradé
-      colors={['#E3354E', '#CD3070']}
-      // Le début et la fin du dégradé
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      // Assurez-vous que le dégradé recouvre tout l'écran
-      style={styles.container}
-    >
-      <LoginHome />
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
-    </LinearGradient>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
