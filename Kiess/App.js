@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import AppNavigator from './navigation/AppNavigator';
 import { SafeAreaView } from 'react-navigation';
+// import styles from './app.scss';
 
 
 export default function App() {

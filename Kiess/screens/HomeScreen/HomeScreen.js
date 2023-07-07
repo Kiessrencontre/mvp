@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, Button, Image } from 'react-native';
 import styles from './styles';
 import { LinearGradient } from 'expo-linear-gradient';
-
+import './styles.scss'
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -25,8 +25,9 @@ export default function HomeScreen({ navigation }) {
         
 
 
-        
+
         <Button
+          // classname="button"
           title="Aller au profil"
           onPress={() => navigation.navigate('Profile')}
         />
