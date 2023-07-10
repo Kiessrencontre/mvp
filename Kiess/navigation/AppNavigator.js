@@ -2,8 +2,9 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import LoginHome from '../Login/LoginHome';
+import WelcomeKiess from '../screens/Block1/WelcomeKiess';
 
 const AppNavigator = createStackNavigator(
   {
@@ -13,15 +14,15 @@ const AppNavigator = createStackNavigator(
     Profile: {
       screen: ProfileScreen,
     },
-    LoginHome :{
-      screen: LoginHome,
+    Welcome :{
+      screen: WelcomeKiess,
     }
 
 
   },
   {
-    initialRouteName: 'Home',
-    // initialRouteName: 'LoginHome',
+    // initialRouteName: 'Home',
+    initialRouteName: 'Welcome',
     defaultNavigationOptions: {
     headerShown: false, // Masquer le header par défaut
     },

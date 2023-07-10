@@ -1,5 +1,5 @@
 // styles.js
-import { StyleSheet , PixelRatio, Dimensions } from 'react-native';
+import { StyleSheet, PixelRatio, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const fontScale = PixelRatio.getFontScale();
@@ -8,7 +8,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    // backgroundColor: "#100c3c"
+    backgroundColor: "#100c3c"
   },
   text: {
     marginTop: 36,
@@ -19,12 +19,10 @@ export default StyleSheet.create({
     // lineHeight: "normal",
     letterSpacing: 1.48,
   },
-  
+
   logoKiess: {
-    // marginTop:190,
-    marginTop: height * 0.23,
-    width: 294,
-    height: 149,
+    marginTop: height * 0.069,
+
   },
   button: {
 
@@ -46,36 +44,6 @@ export default StyleSheet.create({
     fontSize: 16,
     fontStyle: 'normal',
     fontWeight: '400',
-    width:229,
+    width: 229,
   },
-  logo: {
-    width: 17,
-    height: 20,
-    marginLeft: 56,
-  },
-  textContainer: {
-    flex: 1,
-  },
-  text14:{
-    marginTop: height * 0.02,
-    color: '#FFF',
-    textAlign: 'center',
-    fontFamily: 'Roboto',
-    fontSize: 14,
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: 18,
-  },
-  text11:{
-  // marginTop:119,
-  marginTop:height * 0.12,
-  // marginBottom : 47,
-  color: '#FFF',
-  textAlign: 'center',
-  fontFamily: 'Roboto',
-  fontSize: 11,
-  fontStyle: 'normal',
-  fontWeight: '400',
-  lineHeight: 18,
-},
 });

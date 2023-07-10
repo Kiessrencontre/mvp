@@ -1,7 +1,7 @@
 // ProfileScreen.js
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-import './profil.scss'
+// import './profil.scss'
 
 export default function ProfileScreen({ navigation }) {
   return (
