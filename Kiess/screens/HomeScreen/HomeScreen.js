@@ -4,6 +4,8 @@ import { View, Text, Button, Image } from 'react-native';
 import styles from './styles';
 import { LinearGradient } from 'expo-linear-gradient';
 import './styles.scss'
+import { signInWithApple } from '../../Login/Auth/AppleAuth';
+
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -24,7 +26,7 @@ export default function HomeScreen({ navigation }) {
 
         
 
-
+      <Button title="Se connecter avec Apple" onPress={signInWithApple} />
 
         <Button
           // classname="button"
