@@ -8,14 +8,17 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: "#100c3c"
+    backgroundColor: "#FFF"
   },
-  text: {
+
+  textTitle: {
+    width: 274,
+    // textAlign:"left",
+    fontFamily: 'Roboto',
     marginTop: 36,
-    color: "#FFF",
-    fontSize: 14.8,
+    fontSize: 35,
     fontStyle: "normal",
-    fontWeight: 900,
+    fontWeight: 300,
     // lineHeight: "normal",
     letterSpacing: 1.48,
   },
@@ -45,5 +48,16 @@ export default StyleSheet.create({
     fontStyle: 'normal',
     fontWeight: '400',
     width: 229,
+  },
+  redText: {
+    color: 'red',
+  },
+  text: {
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    fontStyle: "normal",
+    fontWeight: 300,
+    // lineHeight: "normal",
+
   },
 });
