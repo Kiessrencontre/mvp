@@ -4,10 +4,10 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import LoginHome from '../Login/LoginHome';
-import WelcomeKiess from '../screens/Block1/WelcomeKiess';
-import PhoneNumber from '../screens/Block1/PhoneNumber';
-import Mail from '../screens/Block1/Mail';
-import FirstName from '../screens/Block1/FirstName';
+import WelcomeKiess from '../screens/Register/WelcomeKiess';
+import PhoneNumber from '../screens/Register/PhoneNumber';
+import Mail from '../screens/Register/Mail';
+import FirstName from '../screens/Register/FirstName';
 
 
 const AppNavigator = createStackNavigator(
@@ -33,8 +33,8 @@ const AppNavigator = createStackNavigator(
 
   },
   {
-    // initialRouteName: 'Home',
-    initialRouteName: 'Mail',
+    initialRouteName: 'Home',
+    // initialRouteName: 'Mail',
     defaultNavigationOptions: {
     headerShown: false, // Masquer le header par défaut
     },

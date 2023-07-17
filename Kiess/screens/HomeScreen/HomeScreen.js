@@ -49,7 +49,7 @@ export default function HomeScreen({ navigation }) {
         <Button
           // classname="button"
           title="Aller au profil"
-          onPress={() => navigation.navigate('Profile')}
+          onPress={() => navigation.navigate('Welcome')}
         />
 
         <Text style={styles.text11}>En appuyant sur Connexion, vous acceptez nos Conditions
