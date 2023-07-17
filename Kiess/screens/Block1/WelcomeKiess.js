@@ -11,7 +11,7 @@ export default function WelcomeKiess({ navigation }) {
 
     const handleNext = () => {
         if (isCheckButtonChecked) {
-          navigation.navigate('Home');
+          navigation.navigate('PhoneNumber');
         }
       };
 

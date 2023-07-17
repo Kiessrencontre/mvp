@@ -60,4 +60,26 @@ export default StyleSheet.create({
     // lineHeight: "normal",
 
   },
+
+  input: {
+    width:294,
+    fontSize: 16,
+    color: 'black',
+    borderBottomWidth: 1,
+    borderBottomColor: 'black',
+    paddingBottom: 5,
+    marginBottom: 10,
+  },
+
+  line: {
+    height: 1,
+    width: '100%',
+    backgroundColor: 'black',
+  },
+  validationText: {
+    fontSize: 16,
+    color: 'black',
+    marginTop: 10,
+    marginBottom:30,
+  },
 });
