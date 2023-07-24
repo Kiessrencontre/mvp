@@ -8,7 +8,7 @@ export default function ProfileScreen({ navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={{ fontSize: 20, marginBottom: 16 }}>C'est l'écran de profil !</Text>
 
-      <Text>azdaz</Text>
+      <Text>Profil Kiess</Text>
       <Button
        
         title="Retour à l'accueil"
