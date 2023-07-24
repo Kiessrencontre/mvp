@@ -16,11 +16,24 @@ export default StyleSheet.create({
     // textAlign:"left",
     fontFamily: 'Roboto',
     marginTop: 36,
-    fontSize: 35,
+    fontSize: 30,
     fontStyle: "normal",
     fontWeight: 300,
     // lineHeight: "normal",
-    letterSpacing: 1.48,
+    // letterSpacing: 1.48,
+    
+  },
+  textTitleG: {
+    width: 314,
+    // textAlign:"left",
+    fontFamily: 'Roboto',
+    marginTop: 36,
+    fontSize: 29,
+    fontStyle: "normal",
+    fontWeight: 300,
+    // lineHeight: "normal",
+    // letterSpacing: 1.48,
+    
   },
 
   logoKiess: {
@@ -60,6 +73,15 @@ export default StyleSheet.create({
     // lineHeight: "normal",
 
   },
+  textBravo: {
+    width:324,
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    fontStyle: "normal",
+    fontWeight: 300,
+    // lineHeight: "normal",
+
+  },
 
   input: {
     width:294,
@@ -81,5 +103,11 @@ export default StyleSheet.create({
     color: 'black',
     marginTop: 10,
     marginBottom:30,
+  },
+  profilePicture: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    marginBottom: 20,
   },
 });

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button, Image, TouchableOpacity, TextInput } from 'react-native';
-import styles from './block1';
+import styles from './styleRegister';
 import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
 import Nextbutton from '../../components/Nextbutton';

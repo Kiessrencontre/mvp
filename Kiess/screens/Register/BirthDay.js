@@ -5,16 +5,15 @@ import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
 import Nextbutton from '../../components/Nextbutton';
 
-export default function FirstName({ navigation }) {
-  const [firstName, setFirstName] = useState('');
-
-  const handleFirstNameChange = (text) => {
-    setFirstName(text);
+export default function Birthday({ navigation }) {
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const handleDateOfBirthChange = (text) => {
+    setDateOfBirth(text);
   };
 
   const handleNext = () => {
-    if (firstName.trim() !== '') {
-      navigation.navigate('YouAre');
+    if (dateOfBirth.trim() !== '') {
+      navigation.navigate('WhereYouLife');
     } else {
       // Affiche un message d'erreur ou effectue d'autres actions si nécessaire
     }
@@ -26,17 +25,21 @@ export default function FirstName({ navigation }) {
         <Image source={require('../../assets/Rose.png')} style={styles.logoKiess} />
       </View>
 
-      <Text style={styles.textTitle}>Ton prénom</Text>
+      <Text style={styles.textTitle}>Ta date de naissance</Text>
 
       <TextInput
         style={styles.input}
-        placeholder="Prénom"
+        placeholder="JJ/MM/AAAA"
         placeholderTextColor="#AAAAAA"
-        value={firstName}
-        onChangeText={handleFirstNameChange}
+        value={dateOfBirth}
+        onChangeText={handleDateOfBirthChange}
+        keyboardType="numeric"
+        maxLength={10}
       />
+      <Text>Vous devez avoir 18 ans mininum.</Text>
 
-      <Nextbutton disabled={firstName.trim() === ''} onPress={handleNext} />
+
+      <Nextbutton disabled={dateOfBirth.trim() === ''} onPress={handleNext} />
     </SafeAreaView>
   );
 }

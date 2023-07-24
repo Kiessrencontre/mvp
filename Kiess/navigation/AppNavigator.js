@@ -8,6 +8,14 @@ import WelcomeKiess from '../screens/Register/WelcomeKiess';
 import PhoneNumber from '../screens/Register/PhoneNumber';
 import Mail from '../screens/Register/Mail';
 import FirstName from '../screens/Register/FirstName';
+import YouAre from '../screens/Register/YouAre';
+import YouOrientation from '../screens/Register/YourOrientation';
+import Birthday from '../screens/Register/BirthDay';
+import WhereYouLife from '../screens/Register/WhereYouLife';
+import Password from '../screens/Register/Password';
+import ProfilPicture from '../screens/Register/ProfilePicture';
+import Bravo from '../screens/Register/Bravo';
+import BlockMatch from '../screens/Register/BlockMatch';
 
 
 const AppNavigator = createStackNavigator(
@@ -24,17 +32,42 @@ const AppNavigator = createStackNavigator(
     PhoneNumber :{
       screen: PhoneNumber
     },
+    BlockMatch:{
+      screen: BlockMatch
+    },
     Mail:{
       screen: Mail
     },
     FirstName:{
       screen: FirstName
     },
+    YouAre:{
+      screen: YouAre
+    },
+    YouOrientation:{
+      screen: YouOrientation
+    },
+    BirthDay:{
+      screen: Birthday
+    },
+    WhereYouLife:{
+      screen: WhereYouLife
+    },
+    Password:{
+      screen:Password
+    },
+    ProfilPicture:{
+      screen: ProfilPicture
+    },
+    Bravo:{
+      screen: Bravo
+    },
+    
 
   },
   {
     initialRouteName: 'Home',
-    // initialRouteName: 'Mail',
+    // initialRouteName: 'ProfilPicture',
     defaultNavigationOptions: {
     headerShown: false, // Masquer le header par défaut
     },
