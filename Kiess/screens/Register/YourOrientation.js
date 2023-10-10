@@ -24,27 +24,31 @@ export default function YouOrientation({ navigation }) {
     };
 
     return (
-        <ScrollView>
-            <SafeAreaView style={styles.container}>
-                <View>
-                    <Image source={require('../../assets/Rose.png')} style={styles.logoKiess} />
-                </View>
+        <View>
+            <ScrollView>
+                <SafeAreaView style={styles.container}>
+                    <View>
+                        <Image source={require('../../assets/Rose.png')} style={styles.logoKiess} />
+                    </View>
 
-                <Text style={styles.textTitle}>Tu orientation sexuelle ?</Text>
+                    <Text style={styles.textTitle}>Tu orientation sexuelle ?</Text>
 
-                {options.map((option, index) => (
-                    <Sexebutton
-                        key={index}
-                        onPress={() => handleOptionSelect(option)}
-                        title={option}
-                        buttonStyle={styles.optionButton}
-                        textStyle={styles.optionButtonText}
-                        isSelected={option === selectedOption}
-                    />
-                ))}
+                    {options.map((option, index) => (
+                        <Sexebutton
+                            key={index}
+                            onPress={() => handleOptionSelect(option)}
+                            title={option}
+                            buttonStyle={styles.optionButton}
+                            textStyle={styles.optionButtonText}
+                            isSelected={option === selectedOption}
+                        />
+                    ))}
 
-                <Nextbutton disabled={firstName.trim() === ''} onPress={handleNext} />
-            </SafeAreaView>
-        </ScrollView>
+                    <Nextbutton disabled={firstName.trim() === ''} onPress={handleNext} />
+                </SafeAreaView>
+            </ScrollView>
+            
+        </View>
+
     );
 }

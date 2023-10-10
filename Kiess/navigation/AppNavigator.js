@@ -18,6 +18,8 @@ import Bravo from '../screens/Register/Bravo';
 import BlockMatch from '../screens/Register/BlockMatch';
 
 
+export const firstFiveRoutes = ['Welcome', 'PhoneNumber', 'Mail', 'FirstName', 'YouAre'];
+
 const AppNavigator = createStackNavigator(
   {
     Home: {
@@ -66,8 +68,8 @@ const AppNavigator = createStackNavigator(
 
   },
   {
-    initialRouteName: 'Home',
-    // initialRouteName: 'ProfilPicture',
+    // initialRouteName: 'Home',
+    initialRouteName: 'Profile',
     defaultNavigationOptions: {
     headerShown: false, // Masquer le header par défaut
     },

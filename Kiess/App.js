@@ -4,10 +4,14 @@ import AppNavigator from './navigation/AppNavigator';
 import { SafeAreaView } from 'react-navigation';
 // import styles from './app.scss';
 
-
 export default function App() {
+  
+  
+
+
   return (
     <SafeAreaView style={{flex:1}}>
+
       <AppNavigator/>
       <StatusBar style="auto" />
     </SafeAreaView>
