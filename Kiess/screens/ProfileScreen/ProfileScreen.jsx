@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button, ScrollView } from 'react-native';
-import MenuKiess from '../../components/MenuKiess';
+import MenuKiess from './../../components/menu/MenuKiess';
 
 export default function ProfileScreen({ navigation }) {
   const [activeTab, setActiveTab] = useState('home'); // Définir le tab actif par défaut

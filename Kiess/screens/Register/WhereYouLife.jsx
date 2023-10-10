@@ -3,17 +3,18 @@ import { View, Text, Button, Image, TextInput } from 'react-native';
 import styles from './styleRegister';
 import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
-import Nextbutton from '../../components/Nextbutton';
+import Nextbutton from '../../components/button/Next';
 
-export default function Birthday({ navigation }) {
-  const [dateOfBirth, setDateOfBirth] = useState('');
-  const handleDateOfBirthChange = (text) => {
-    setDateOfBirth(text);
+export default function WhereYouLife({ navigation }) {
+  const [city, setCity] = useState('');
+
+  const handleCityChange = (text) => {
+    setCity(text);
   };
 
   const handleNext = () => {
-    if (dateOfBirth.trim() !== '') {
-      navigation.navigate('WhereYouLife');
+    if (city.trim() !== '') {
+      navigation.navigate('Password');
     } else {
       // Affiche un message d'erreur ou effectue d'autres actions si nécessaire
     }
@@ -25,21 +26,17 @@ export default function Birthday({ navigation }) {
         <Image source={require('../../assets/Rose.png')} style={styles.logoKiess} />
       </View>
 
-      <Text style={styles.textTitle}>Ta date de naissance</Text>
+      <Text style={styles.textTitle}>Tu vis à</Text>
 
       <TextInput
         style={styles.input}
-        placeholder="JJ/MM/AAAA"
+        placeholder="Ville"
         placeholderTextColor="#AAAAAA"
-        value={dateOfBirth}
-        onChangeText={handleDateOfBirthChange}
-        keyboardType="numeric"
-        maxLength={10}
+        value={city}
+        onChangeText={handleCityChange}
       />
-      <Text>Vous devez avoir 18 ans mininum.</Text>
 
-
-      <Nextbutton disabled={dateOfBirth.trim() === ''} onPress={handleNext} />
+      <Nextbutton disabled={city.trim() === ''} onPress={handleNext} />
     </SafeAreaView>
   );
 }

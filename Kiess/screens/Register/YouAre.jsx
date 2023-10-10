@@ -3,8 +3,8 @@ import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
 import styles from './styleRegister';
 import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
-import Nextbutton from '../../components/Nextbutton';
-import Sexebutton from '../../components/SexeButton';
+import Nextbutton from '../../components/button/Next';
+import Sexebutton from '../../components/button/Sexe';
 
 export default function YouAre({ navigation }) {
   const [firstName, setFirstName] = useState('');

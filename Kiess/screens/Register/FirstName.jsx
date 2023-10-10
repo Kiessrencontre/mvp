@@ -3,18 +3,18 @@ import { View, Text, Button, Image, TextInput } from 'react-native';
 import styles from './styleRegister';
 import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
-import Nextbutton from '../../components/Nextbutton';
+import Nextbutton from '../../components/button/Next';
 
-export default function WhereYouLife({ navigation }) {
-  const [city, setCity] = useState('');
+export default function FirstName({ navigation }) {
+  const [firstName, setFirstName] = useState('');
 
-  const handleCityChange = (text) => {
-    setCity(text);
+  const handleFirstNameChange = (text) => {
+    setFirstName(text);
   };
 
   const handleNext = () => {
-    if (city.trim() !== '') {
-      navigation.navigate('Password');
+    if (firstName.trim() !== '') {
+      navigation.navigate('YouAre');
     } else {
       // Affiche un message d'erreur ou effectue d'autres actions si nécessaire
     }
@@ -26,17 +26,17 @@ export default function WhereYouLife({ navigation }) {
         <Image source={require('../../assets/Rose.png')} style={styles.logoKiess} />
       </View>
 
-      <Text style={styles.textTitle}>Tu vis à</Text>
+      <Text style={styles.textTitle}>Ton prénom</Text>
 
       <TextInput
         style={styles.input}
-        placeholder="Ville"
+        placeholder="Prénom"
         placeholderTextColor="#AAAAAA"
-        value={city}
-        onChangeText={handleCityChange}
+        value={firstName}
+        onChangeText={handleFirstNameChange}
       />
 
-      <Nextbutton disabled={city.trim() === ''} onPress={handleNext} />
+      <Nextbutton disabled={firstName.trim() === ''} onPress={handleNext} />
     </SafeAreaView>
   );
 }

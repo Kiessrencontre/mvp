@@ -3,7 +3,7 @@ import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
 import styles from './styleRegister';
 import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
-import Nextbutton from '../../components/Nextbutton';
+import Nextbutton from '../../components/button/Next';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function ProfilPicture({ navigation }) {

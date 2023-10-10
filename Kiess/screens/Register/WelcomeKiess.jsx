@@ -3,8 +3,8 @@ import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
 import styles from './styleRegister';
 import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
-import Nextbutton from '../../components/Nextbutton';
-import CheckButton from '../../components/CheckButton';
+import Nextbutton from '../../components/button/Next';
+import CheckButton from '../../components/button/Check';
 
 export default function WelcomeKiess({ navigation }) {
     const [isCheckButtonChecked, setIsCheckButtonChecked] = useState(false);

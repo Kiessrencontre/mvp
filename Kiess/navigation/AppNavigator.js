@@ -1,7 +1,7 @@
 // AppNavigator.js
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import HomeScreen from '../screens/Home/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import LoginHome from '../Login/LoginHome';
 import WelcomeKiess from '../screens/Register/WelcomeKiess';

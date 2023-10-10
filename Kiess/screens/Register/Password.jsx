@@ -3,7 +3,7 @@ import { View, Text, Button, Image, TextInput } from 'react-native';
 import styles from './styleRegister';
 import { SafeAreaView } from 'react-navigation';
 import { Stack, useRouter } from 'expo-router';
-import Nextbutton from '../../components/Nextbutton';
+import Nextbutton from '../../components/button/Next';
 
 export default function Password({ navigation }) {
     const [password, setPassword] = useState('');
