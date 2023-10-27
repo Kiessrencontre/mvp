@@ -6,6 +6,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PhoneNumber from '../screens/Register/PhoneNumber';
 import BlockMatch from '../screens/Register/BlockMatch';
 import ShopClassic from '../screens/Shop/SubsClassic';
+import ShopPrenium from '../screens/Shop/SubsPrenium';
+import ShopPreniumPlus from '../screens/Shop/SubsPreniumPlus';
+import SuperCoin from '../screens/Shop/SuperCoin';
+import SuperCoin2 from '../screens/Shop/SuperCoin2';
+import Setting from '../screens/Setting/Setting';
+import MatchMaking from '../screens/MatchMaking/MatchMaking';
 // import HomeScreen from '../screens/Home/HomeScreen';
 
 
@@ -51,7 +57,8 @@ const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
     return (
-        <HomeStack.Navigator>
+        <HomeStack.Navigator
+        screenOptions={{ headerShown: false }}>
             <HomeStack.Screen name="Home" component={HomeScreen} />
             <HomeStack.Screen name="Details" component={DetailsScreen} />
             <HomeStack.Screen name="PhoneNumber" component={PhoneNumber} />
@@ -61,12 +68,14 @@ function HomeStackScreen() {
 }
 
 const SettingsStack = createNativeStackNavigator();
+const ProfilStack = createNativeStackNavigator();
 const BoutiqueStack = createNativeStackNavigator();
 
 function SettingsStackScreen() {
     return (
-        <SettingsStack.Navigator>
-            <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+        <SettingsStack.Navigator
+        screenOptions={{ headerShown: false }}>
+            <SettingsStack.Screen name="Setting" component={Setting} />
             <SettingsStack.Screen name="Details" component={DetailsScreen} />
         </SettingsStack.Navigator>
     );
@@ -75,17 +84,19 @@ function SettingsStackScreen() {
 
 function ProfilStackScreen() {
     return (
-        <SettingsStack.Navigator>
-            <SettingsStack.Screen name="Settings" component={SettingsScreen} />
-            <SettingsStack.Screen name="Details" component={DetailsScreen} />
-        </SettingsStack.Navigator>
+        <ProfilStack.Navigator
+        screenOptions={{ headerShown: false }}>
+            <ProfilStack.Screen name="Settings" component={SettingsScreen} />
+            <ProfilStack.Screen name="Details" component={DetailsScreen} />
+        </ProfilStack.Navigator>
     );
 }
 function MatchStackScreen() {
     return (
-        <SettingsStack.Navigator>
-            <SettingsStack.Screen name="Settings" component={SettingsScreen} />
-            <SettingsStack.Screen name="Details" component={DetailsScreen} />
+        <SettingsStack.Navigator
+        screenOptions={{ headerShown: false }}
+        >
+            <SettingsStack.Screen name="MatchMaking" component={MatchMaking} />
         </SettingsStack.Navigator>
     );
 }
@@ -93,12 +104,18 @@ function MatchStackScreen() {
 
 function BoutiqueStackScreen() {
     return (
-        <BoutiqueStack.Navigator>
+        <BoutiqueStack.Navigator
+        screenOptions={{ headerShown: false }}>
             <BoutiqueStack.Screen name="Shop" component={ShopClassic} />
-            <BoutiqueStack.Screen name="Settings" component={SettingsScreen} />
+            <BoutiqueStack.Screen name="ShopPrenium" component={ShopPrenium} />
+            <BoutiqueStack.Screen name="ShopPreniumPlus" component={ShopPreniumPlus} />
+            <BoutiqueStack.Screen name="SuperCoin" component={SuperCoin} />
+            <BoutiqueStack.Screen name="SuperCoin2" component={SuperCoin2} />
         </BoutiqueStack.Navigator>
     );
 }
+
+
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
@@ -108,11 +125,11 @@ export default function MyTabs() {
                 screenOptions={{ headerShown: false }}
                 tabBar={(props) => <BottomTabBar {...props} style={{ height: 98 }} />}
             >
-                <Tab.Screen name="Home" component={HomeStackScreen} />
+                <Tab.Screen name="HomeTab" component={HomeStackScreen} />
                 <Tab.Screen name="Profil" component={ProfilStackScreen} />
-                <Tab.Screen name="Match" component={MatchStackScreen} />
+                <Tab.Screen name="MatchTab" component={MatchStackScreen} />
                 <Tab.Screen name="Boutique" component={BoutiqueStackScreen} />
-                <Tab.Screen name="Settings" component={SettingsStackScreen} />
+                <Tab.Screen name="Réglages" component={SettingsStackScreen} />
             </Tab.Navigator>
         </NavigationContainer>
     );
