@@ -1,13 +1,19 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import BlindMatch from"../../assets/Matchmaking/BlindMatch.png"
+import Uno from"../../assets/Matchmaking/UNO.png"
+import Jo from"../../assets/Matchmaking/JO.png"
+import GroupeDiscussion from"../../assets/Matchmaking/GroupeDiscussion.png"
+import HotRoom from"../../assets/Matchmaking/HotRoom.png"
 
-const MatchMaking = () => {
+const MatchMaking = ({navigation}) => {
   const matchmakingOptions = [
-    { imageUrl: 'URL_OF_FIRST_IMAGE', label: "L'amour rend aveugle", tag: 'TENDANCE' },
-    { imageUrl: 'URL_OF_SECOND_IMAGE', label: 'Jeu de carte multijoueur', tag: 'TENDANCE' },
-    { imageUrl: 'URL_OF_THIRD_IMAGE', label: 'Fans des JO PARIS 2024', tag: 'TEMPORAIRE / SPEED CHATING' },
-    { imageUrl: 'URL_OF_FOURTH_IMAGE', label: 'Discussion de groupe', tag: 'CLASSIQUE' },
-    { imageUrl: 'URL_OF_FIFTH_IMAGE', label: 'La HOT ROOM', tag: 'UNIQUEMENT DE 22H00 À 05H00' },
+    // { image: BlindMatch, label: "L'amour rend aveugle", tag: 'TENDANCE',screenName: 'BlindMatchScreen' },
+    { image: BlindMatch, label: "L'amour rend aveugle", tag: 'TENDANCE',screenName: 'ProfilCard' },
+    { image: Uno, label: 'Jeu de carte multijoueur', tag: 'TENDANCE' },
+    { image: Jo, label: 'Fans des JO PARIS 2024', tag: 'TEMPORAIRE / SPEED CHATING' },
+    { image: GroupeDiscussion, label: 'Discussion de groupe', tag: 'CLASSIQUE' },
+    { image: HotRoom, label: 'La HOT ROOM', tag: 'UNIQUEMENT DE 22H00 À 05H00' },
   ];
 
   return (
@@ -22,19 +28,19 @@ const MatchMaking = () => {
       <ScrollView>
         {matchmakingOptions.map((item, index) => (
           <View key={index} style={styles.optionContainer}>
-            <Image source={{ uri: item.imageUrl }} style={styles.optionImage} />
+            <Image source={item.image} style={styles.optionImage} />
             <Text style={styles.tag}>{item.tag}</Text>
             <Text style={styles.optionLabel}>{item.label}</Text>
-            <TouchableOpacity style={styles.startButton}>
+            <TouchableOpacity style={styles.startButton}
+            onPress={()=> navigation.navigate(item.screenName)}
+            >
               <Text>Commencer</Text>
             </TouchableOpacity>
           </View>
         ))}
       </ScrollView>
 
-      <View style={styles.footer}>
-        {/* Icons can be placed here as needed */}
-      </View>
+      
     </View>
   );
 };

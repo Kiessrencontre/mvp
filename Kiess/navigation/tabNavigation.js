@@ -12,6 +12,9 @@ import SuperCoin from '../screens/Shop/SuperCoin';
 import SuperCoin2 from '../screens/Shop/SuperCoin2';
 import Setting from '../screens/Setting/Setting';
 import MatchMaking from '../screens/MatchMaking/MatchMaking';
+import BlindMatch from '../screens/MatchMaking/BlindMatch/BlindMatch';
+import BlindChoise from '../screens/MatchMaking/BlindMatch/BlindChoise';
+import ProfileCard from '../screens/MatchMaking/BlindMatch/BlindProfil';
 // import HomeScreen from '../screens/Home/HomeScreen';
 
 
@@ -94,9 +97,12 @@ function ProfilStackScreen() {
 function MatchStackScreen() {
     return (
         <SettingsStack.Navigator
-        screenOptions={{ headerShown: false }}
-        >
+        screenOptions={{ headerShown: false }}>
             <SettingsStack.Screen name="MatchMaking" component={MatchMaking} />
+            <SettingsStack.Screen name="BlindMatchScreen" component={BlindMatch} />
+            <SettingsStack.Screen name="BlindChoise" component={BlindChoise} />
+            <SettingsStack.Screen name="ProfilCard" component={ProfileCard} />
+
         </SettingsStack.Navigator>
     );
 }
