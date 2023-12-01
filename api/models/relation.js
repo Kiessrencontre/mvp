@@ -1,8 +1,11 @@
-const mongoose = require('../db');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const relationSchema = new mongoose.Schema({
-  user_id: mongoose.Schema.Types.ObjectId,
-  other_user_id: mongoose.Schema.Types.ObjectId
+const relationSchema = new Schema({
+    user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    other_user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
-module.exports = mongoose.model('Relation', relationSchema);
+const Relation = mongoose.model('Relation', relationSchema);
+
+module.exports = Relation;
