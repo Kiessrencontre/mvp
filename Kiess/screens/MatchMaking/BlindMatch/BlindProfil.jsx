@@ -1,64 +1,66 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import CardP from "../../../components/Card/CardProfil";
 
 function ProfileCard() {
   return (
-    <View style={styles.containerG}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <View>
-            <Image
-              source={require("../../../assets/logo.png")}
-              style={styles.pp}
-            />
-          </View>
-          <View>
-            <Text style={styles.colorW}>Léa</Text>
-            <Text style={styles.colorW}>Vendeuse (23 ans)</Text>
-            <Text style={styles.colorW}>Lyon (69)</Text>
-          </View>
-        </View>
+    // <View style={styles.containerG}>
+    //   <View style={styles.container}>
+    //     <View style={styles.header}>
+    //       <View>
+    //         <Image
+    //           source={require("../../../assets/logo.png")}
+    //           style={styles.pp}
+    //         />
+    //       </View>
+    //       <View>
+    //         <Text style={styles.colorW}>Léa</Text>
+    //         <Text style={styles.colorW}>Vendeuse (23 ans)</Text>
+    //         <Text style={styles.colorW}>Lyon (69)</Text>
+    //       </View>
+    //     </View>
 
 
-        <View style={styles.phrase}>
+    //     <View style={styles.phrase}>
 
-        <Text style={[styles.tagline, styles.colorW]}>
-          Sa phrase d’accroche
-        </Text>
-        <Text style={styles.colorW}>
-          Ici pour rencontrer une personne cool, ouverte et qui n’a pas peur de
-          se lancer
-        </Text>
-        </View>
+    //     <Text style={[styles.tagline, styles.colorW]}>
+    //       Sa phrase d’accroche
+    //     </Text>
+    //     <Text style={styles.colorW}>
+    //       Ici pour rencontrer une personne cool, ouverte et qui n’a pas peur de
+    //       se lancer
+    //     </Text>
+    //     </View>
 
 
-        <View style={styles.audioMatch}>
+    //     <View style={styles.audioMatch}>
 
-        <Text style={[styles.audioLabel, styles.colorW]}>Son Audio Match:</Text>
-        {/* Placeholder for the audio player. You might use a package like `react-native-sound` for this. */}
-        <View style={styles.audioPlaceholder} />
-        </View>
+    //     <Text style={[styles.audioLabel, styles.colorW]}>Son Audio Match:</Text>
+    //     {/* Placeholder for the audio player. You might use a package like `react-native-sound` for this. */}
+    //     <View style={styles.audioPlaceholder} />
+    //     </View>
 
-        <View style={styles.badgesContainer}>
-        <Text style={[styles.badgesLabel, styles.colorW]}>Ses badges</Text>
-          {/* Repeat this for each badge */}
-            <View style={styles.badge}>               
-            <Image source={require("../../../assets/logo.png")}style={styles.badgeIcon}/>
-            <Image source={require("../../../assets/logo.png")}style={styles.badgeIcon}/>
-            <Image source={require("../../../assets/logo.png")}style={styles.badgeIcon}/>
-            </View>
+    //     <View style={styles.badgesContainer}>
+    //     <Text style={[styles.badgesLabel, styles.colorW]}>Ses badges</Text>
+    //       {/* Repeat this for each badge */}
+    //         <View style={styles.badge}>               
+    //         <Image source={require("../../../assets/logo.png")}style={styles.badgeIcon}/>
+    //         <Image source={require("../../../assets/logo.png")}style={styles.badgeIcon}/>
+    //         <Image source={require("../../../assets/logo.png")}style={styles.badgeIcon}/>
+    //         </View>
 
-        </View>
-      </View>
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.rejectButton}>
-          <Text>X</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.acceptButton}>
-          <Text>❤️</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    //     </View>
+    //   </View>
+    //   <View style={styles.footer}>
+    //     <TouchableOpacity style={styles.rejectButton}>
+    //       <Text>X</Text>
+    //     </TouchableOpacity>
+    //     <TouchableOpacity style={styles.acceptButton}>
+    //       <Text>❤️</Text>
+    //     </TouchableOpacity>
+    //   </View>
+    // </View>
+    <CardP/>
   );
 }
 

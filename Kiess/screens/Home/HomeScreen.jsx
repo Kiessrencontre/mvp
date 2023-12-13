@@ -14,7 +14,7 @@ export default function HomeScreen({ navigation }) {
     <LinearGradient
       // Les couleurs du dégradé
       colors={["#E3354E", "#CD3070"]}
-      // Le début et la fin du dégradé
+      // Le début et la  fin du dégradé
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       // Assurez-vous que le dégradé recouvre tout l'écran

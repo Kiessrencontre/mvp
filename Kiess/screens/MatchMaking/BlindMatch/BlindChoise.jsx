@@ -2,16 +2,15 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Jo from "../../../assets/Matchmaking/BlindMatchSearch.png";
 
+
+
 function BlindChoise({navigation}) {
   return (
     <View style={styles.container}>
       <Image source={Jo} style={styles.image} />
-      <TouchableOpacity
-      onPress={()=> navigation.navigate("ProfilCard") }>
-
-      <Text>Léa</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("ProfilCard")}>
+        <Text>Léa</Text>
       </TouchableOpacity>
-
     </View>
   );
 }

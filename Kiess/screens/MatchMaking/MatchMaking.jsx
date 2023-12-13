@@ -8,8 +8,8 @@ import HotRoom from"../../assets/Matchmaking/HotRoom.png"
 
 const MatchMaking = ({navigation}) => {
   const matchmakingOptions = [
-    // { image: BlindMatch, label: "L'amour rend aveugle", tag: 'TENDANCE',screenName: 'BlindMatchScreen' },
-    { image: BlindMatch, label: "L'amour rend aveugle", tag: 'TENDANCE',screenName: 'ProfilCard' },
+    { image: BlindMatch, label: "L'amour rend aveugle", tag: 'TENDANCE',screenName: 'BlindMatchScreen' },
+    // { image: BlindMatch, label: "L'amour rend aveugle", tag: 'TENDANCE',screenName: 'ProfilCard' },
     { image: Uno, label: 'Jeu de carte multijoueur', tag: 'TENDANCE' },
     { image: Jo, label: 'Fans des JO PARIS 2024', tag: 'TEMPORAIRE / SPEED CHATING' },
     { image: GroupeDiscussion, label: 'Discussion de groupe', tag: 'CLASSIQUE' },
@@ -18,10 +18,10 @@ const MatchMaking = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <Image source={{uri: 'URL_OF_THE_KVESS_LOGO'}} style={styles.logo}/>
         <Image source={{uri: 'URL_OF_THE_PROFILE_IMAGE'}} style={styles.avatar}/>
-      </View>
+      </View> */}
 
       <Text style={styles.title}>Matchmaking</Text>
 
