@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity,Image } from 'react-native';
 import tw from "twrnc";
+import IconBack from '../../components/IconBack';
+import IconFront from '../../components/IconFront';
+import KiessPP from'../../assets/Boutique/KiessPP.png';
 
 
 export default function ShopPreniumPlus({navigation}) {
@@ -11,23 +14,21 @@ export default function ShopPreniumPlus({navigation}) {
       <View style={tw`flex-row w-full items-center justify-center `}>
         <View>
         <TouchableOpacity
-        onPress={() => navigation.navigate('ShopPrenium')}><Text style={tw`text-xl`}>{"<"}</Text></TouchableOpacity>
+        onPress={() => navigation.navigate('ShopPrenium')}><IconBack/></TouchableOpacity>
         </View>
 
-        <View style={tw` mx-25 `}>
-        <Text>KÏESS</Text>
+        <View style={tw` mx-15 `}>
+        <Image source={KiessPP} style={{ width: 132, height: 94}} resizeMode="contain" />
         </View>
 
         <View>
         <TouchableOpacity
-        onPress={() => navigation.navigate('SuperCoin')}><Text style={tw`text-xl`}>{">"}</Text></TouchableOpacity>
+        onPress={() => navigation.navigate('SuperCoin')}><IconFront/></TouchableOpacity>
         </View>
           
         
       </View>
-
-      <Text style={tw`text-white text-xl font-bold`}>PREMIUM PLUS</Text>
-
+      
       <View style={tw`text-white`}>
         <Text style={tw `text-base h-9 text-white`}>🔒 20% Reduction prix cases</Text>
         <Text style={tw `text-base h-9 text-white`}>🔓 6 Slots match</Text>

@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity,Image } from 'react-native';
 import tw from "twrnc";
-
+import IconBack from '../../components/IconBack';
+import IconFront from '../../components/IconFront';
+import KiessC from'../../assets/Boutique/KiessClassique.png';
 
 export default function ShopClassic({ navigation }) {
   return (
@@ -10,22 +12,22 @@ export default function ShopClassic({ navigation }) {
 
       <View style={tw`flex-row w-full items-center justify-center `}>
         <View>
-        <TouchableOpacity onPress={() => navigation.navigate('SuperCoin2')}><Text style={tw`text-xl`}>{"<"}</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('SuperCoin2')}><IconBack/></TouchableOpacity>
         </View>
 
-        <View style={tw` mx-25 `}>
-        <Text>KÏESS</Text>
+        <View style={tw` mx-15 `}>
+        <Image source={KiessC} style={{ width: 132, height: 94}} resizeMode="contain" />
         </View>
 
         <View>
         <TouchableOpacity
-        onPress={() => navigation.navigate('ShopPrenium')}><Text style={tw`text-xl`}>{">"}</Text></TouchableOpacity>
+        onPress={() => navigation.navigate('ShopPrenium')}><IconFront/></TouchableOpacity>
         </View>
           
         
       </View>
 
-      <Text style={tw`text-white text-xl font-bold`}>CLASSIQUE</Text>
+      {/* <Text style={tw`text-white text-xl font-bold`}>CLASSIQUE</Text> */}
 
       <View style={tw`text-white`}>
         <Text style={tw `text-base h-9 text-white`}>🔒 Reduction prix cases</Text>

@@ -97,9 +97,9 @@ function MatchStackScreen() {
                     <TopBar
                         goBack={() => navigation.goBack()} />)
             }}>
-            {/* <SettingsStack.Screen name="MatchMaking" component={MatchMaking} />
+            <SettingsStack.Screen name="MatchMaking" component={MatchMaking} />
             <SettingsStack.Screen name="BlindMatchScreen" component={BlindMatch} />
-            <SettingsStack.Screen name="BlindChoise" component={BlindChoise} /> */}
+            <SettingsStack.Screen name="BlindChoise" component={BlindChoise} />
             <SettingsStack.Screen name="ProfilCard" component={ProfileCard} />
 
         </SettingsStack.Navigator>

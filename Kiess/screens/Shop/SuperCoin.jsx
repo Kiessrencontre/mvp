@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import tw from "twrnc";
+import IconBack from '../../components/IconBack';
+import IconFront from '../../components/IconFront';
+import KiessSP from'../../assets/Boutique/SuperPieces.png';
 
 
 export default function SuperCoin({ navigation }) {
@@ -10,23 +13,20 @@ export default function SuperCoin({ navigation }) {
 
       <View style={tw`flex-row w-full items-center justify-center `}>
         <View>
-        <TouchableOpacity onPress={() => navigation.navigate('ShopPreniumPlus')}><Text style={tw`text-xl`}>{"<"}</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ShopPreniumPlus')}><IconBack/></TouchableOpacity>
         </View>
 
-        <View style={tw` mx-25 `}>
-        <Text>KÏESS</Text>
+        <View style={tw` mx-15 `}>
+        <Image source={KiessSP} style={{ width: 132, height: 94}} resizeMode="contain" />
         </View>
 
         <View>
         <TouchableOpacity
-        onPress={() => navigation.navigate('SuperCoin2')}><Text style={tw`text-xl`}>{">"}</Text></TouchableOpacity>
+        onPress={() => navigation.navigate('SuperCoin2')}><IconFront/></TouchableOpacity>
         </View>
           
         
       </View>
-
-      <Text style={tw`text-white text-xl font-bold`}>SUPER PIECE</Text>
-
       
       
       <Text style={tw `text-2xl text-white`}>3,99€/mois</Text>

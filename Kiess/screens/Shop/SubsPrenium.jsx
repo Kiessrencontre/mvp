@@ -1,6 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import tw from "twrnc";
+
+import IconBack from '../../components/IconBack';
+import IconFront from '../../components/IconFront';
+import KiessP from'../../assets/Boutique/KiessPrenium.png';
 
 
 export default function ShopPrenium({ navigation }) {
@@ -12,21 +16,20 @@ export default function ShopPrenium({ navigation }) {
         <View>
         <TouchableOpacity
         onPress={() => navigation.navigate('Shop')}
-         ><Text style={tw`text-xl`}>{"<"}</Text></TouchableOpacity>
+         ><IconBack/></TouchableOpacity>
         </View>
 
-        <View style={tw` mx-25 `}>
-        <Text>KÏESS</Text>
+        <View style={tw` mx-15 `}>
+        <Image source={KiessP} style={{ width: 132, height: 94}} resizeMode="contain" />
         </View>
 
         <View>
-        <TouchableOpacity onPress={() => navigation.navigate('ShopPreniumPlus')}><Text style={tw`text-xl`}>{">"}</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ShopPreniumPlus')}><IconFront/></TouchableOpacity>
         </View>
           
         
       </View>
 
-      <Text style={tw`text-white text-xl font-bold`}>PREMIUM</Text>
 
       <View style={tw`text-white`}>
         <Text style={tw `text-base h-9 text-white`}>🔒 10% Reduction prix cases</Text>

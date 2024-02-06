@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, Image } from 'react-native';
 import tw from 'twrnc';
+import IconBack from '../components/IconBack';
 
 const TopBar = ({ goBack, logoSource, rightButtonSource }) => {
     logoSource =require('../assets/Group.png')
@@ -8,7 +9,7 @@ const TopBar = ({ goBack, logoSource, rightButtonSource }) => {
     return (
         <View style={tw`flex-row items-center justify-around w-100 pb-4 pt-10 bg-white `}>
             <TouchableOpacity onPress={goBack}>
-                <Text style={tw`text-2xl`}>{"<"}</Text>
+                <IconBack/>
             </TouchableOpacity>
 
             <Image
