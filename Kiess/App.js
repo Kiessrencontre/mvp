@@ -4,25 +4,19 @@ import AppNavigator from './navigation/AppNavigator';
 import { SafeAreaView } from 'react-navigation';
 import MyTabs from './navigation/tabNavigation';
 import tw from "twrnc";
-
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
 
   return (
     <SafeAreaView className="flex-1">
+      <NavigationContainer>
 
       {/* <AppNavigator/> */}
-      <MyTabs/>
+      <MyTabs />
       <StatusBar style="auto" />
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });

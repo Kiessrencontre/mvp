@@ -5,8 +5,10 @@ import tw from 'twrnc';
 import Swiper from 'react-native-swiper';
 import IconRow from '../../components/Home/IconsRow'; // Assurez-vous que le chemin est correct
 import TextOverlay  from '../../components/Home/TextOverlay'; // Assurez-vous que le chemin est correct
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+  const navigation = useNavigation();
   const icons = [
     { image: require("../../assets/Group194.png"), name: "Julia" },
     { image: require("../../assets/Group194.png"), name: "Marc" },
@@ -15,6 +17,11 @@ const Home = () => {
     
     // ... plus d'icônes ...
   ];
+  const handleIconPress = (userName) => {
+    // Naviguez vers ChatScreen avec le paramètre userName
+    navigation.navigate('ChatScreen', { userName });
+  };
+
 
   return (
     <View style={tw`flex-1`}>
@@ -95,7 +102,7 @@ const Home = () => {
       </Swiper>
 
       
-      <IconRow icons={icons} />
+      <IconRow icons={icons} onIconPress={handleIconPress} />
     </View>
   );
 };
