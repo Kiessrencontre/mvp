@@ -18,7 +18,9 @@ export default function HomeStackScreen() {
                         goBack={() => navigation.goBack()} />)
             }}>
             <HomeStack.Screen name="Home" component={Home} />
-            <HomeStack.Screen name="ChatScreen" component={ChatScreen} />
+            <HomeStack.Screen name="ChatScreen" component={ChatScreen}
+            options={{ headerShown: false }}
+            />
             <HomeStack.Screen name="PhoneNumber" component={PhoneNumber} />
             <HomeStack.Screen name="BlockMatch" component={BlockMatch} />
         </HomeStack.Navigator>

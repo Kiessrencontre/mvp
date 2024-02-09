@@ -1,40 +1,63 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-import tw from 'twrnc';
-
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from "react-native";
+import tw from "twrnc";
+import CustomTopBar from './CustomTopBar';
 // Simulate data
 const messagesData = [
-  { id: '1', text: 'Bonjour Julia!', incoming: true },
-  { id: '2', text: 'Salut! Comment vas-tu?', incoming: false },
+  { id: "1", text: "Bonjour Julia!", incoming: true },
+  { id: "2", text: "Salut! Comment vas-tu?", incoming: false },
   // Add more messages here
 ];
 
 const ChatScreen = ({ route, navigation }) => {
+  const { userImage, userName, userPoints } = route.params;
+  // console.log(route.params);
   const [messages, setMessages] = useState(messagesData);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const sendMessage = () => {
     if (text) {
       // Here you would send the message to your backend or chat service
-      const newMessage = { id: Date.now().toString(), text: text, incoming: false };
+      const newMessage = {
+        id: Date.now().toString(),
+        text: text,
+        incoming: false,
+      };
       setMessages([...messages, newMessage]);
-      setText('');
+      setText("");
     }
   };
-
   return (
     <View style={tw`flex-1`}>
+
+      <CustomTopBar navigation={navigation} 
+      userImage={userImage}
+      userName={userName}
+      userPoints={userPoints} />
+
+
       <FlatList
         data={messages}
         renderItem={({ item }) => (
-          <View style={tw`bg-gray-100 m-2 p-2 rounded-lg ${item.incoming ? 'self-start' : 'self-end'}`}>
+          <View
+          style={tw`bg-gray-100 m-2 p-2 rounded-lg ${
+            item.incoming ? "self-start" : "self-end"
+          }`}
+          >
             <Text>{item.text}</Text>
           </View>
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         style={tw`flex-1`}
       />
-      <View style={tw`flex-direction row items-center p-2 border-t border-gray-200`}>
+      <View style={tw`flex-row items-center p-2 border-t border-gray-200`}>
         <TextInput
           value={text}
           onChangeText={setText}

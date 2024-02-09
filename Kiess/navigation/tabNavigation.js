@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBottomTabNavigator,BottomTabBar  } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 import HomeStackScreen from './HomeStack';
 import ProfilStackScreen from './ProfileStack';
 import MatchStackScreen from './MatchStack';
@@ -11,32 +11,54 @@ import IconKiess from '../components/IconKiess';
 import IconBoutique from '../components/IconBoutique';
 import IconReglage from '../components/IconReglage';
 
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+
+
 const Tab = createBottomTabNavigator();
 const defaultColor = "#3D3D3D";
 const focusedColor = "#FC2D3D";
 
 export default function MyTabs() {
     return (
+        // <Tab.Navigator
+        //     screenOptions={{ headerShown: false }
+        // }
+        //     tabBar={(props) => <BottomTabBar {...props} style={{ height: 98 }} />}
+        //     // tabBar={props => <BottomTabBar {...props} />}
+
+        // >
+
         <Tab.Navigator
-            screenOptions={{ headerShown: false }
-        }
+            screenOptions={({ route }) => ({
+                // Désactiver la visibilité de la tab bar pour l'écran ChatScreen
+                tabBarVisible: ((route) => {
+                    const routeName = getFocusedRouteNameFromRoute(route) ?? '';
+                    return routeName !== 'ChatScreen';
+                })(route),
+                headerShown: false,
+            })}
             tabBar={(props) => <BottomTabBar {...props} style={{ height: 98 }} />}
-            // tabBar={props => <BottomTabBar {...props} />}
-            
         >
-            <Tab.Screen name="HomeTab" component={HomeStackScreen}
-                options={{
+            
+            <Tab.Screen
+                name="HomeTab"
+                component={HomeStackScreen}
+                options={({ route }) => ({
                     tabBarIcon: ({ focused }) => (
                         <IconHome fill={focused ? focusedColor : defaultColor} />
                     ),
-                }} />
+                    tabBarStyle: {
+                        display: getFocusedRouteNameFromRoute(route) === 'ChatScreen' ? 'none' : 'flex',
+                    },
+                })}
+            />
+
             <Tab.Screen name="Profil" component={ProfilStackScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <IconProfl fill={focused ? focusedColor : defaultColor} />
-                    )
-                }}
-            />
+                        <IconProfl fill={focused ? focusedColor : defaultColor} />)
+                }} />
+
             <Tab.Screen name="MatchTab" component={MatchStackScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (

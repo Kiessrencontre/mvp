@@ -10,16 +10,20 @@ import { useNavigation } from '@react-navigation/native';
 const Home = () => {
   const navigation = useNavigation();
   const icons = [
-    { image: require("../../assets/Group194.png"), name: "Julia" },
-    { image: require("../../assets/Group194.png"), name: "Marc" },
-    { image: require("../../assets/Group194.png"), name: "Julia" },
-    { image: require("../../assets/Group194.png"), name: "Marc" },
+    { image: require("../../assets/Group194.png"), name: "Julia",point:"150" },
+    { image: require("../../assets/Group194.png"), name: "Marc" ,point:"200" },
+    { image: require("../../assets/Group194.png"), name: "from",point:"200" },
+    { image: require("../../assets/Group194.png"), name: "to",point:"200" },
     
     // ... plus d'icônes ...
   ];
-  const handleIconPress = (userName) => {
+  const handleIconPress = (icon) => {
     // Naviguez vers ChatScreen avec le paramètre userName
-    navigation.navigate('ChatScreen', { userName });
+    // console.log('Icon pressed: ', icon);
+    navigation.navigate('ChatScreen', { 
+      userName: icon.name, 
+      userImage: icon.image, 
+      userPoints: icon.point });
   };
 
 
@@ -102,7 +106,7 @@ const Home = () => {
       </Swiper>
 
       
-      <IconRow icons={icons} onIconPress={handleIconPress} />
+      <IconRow icons={icons}  onIconPress={handleIconPress} />
     </View>
   );
 };
