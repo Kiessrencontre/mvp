@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 // Utiliser les routeurs
 app.use(userRouter);
-app.use(matchRouter);
+//app.use(matchRouter);
 // ... utiliser d'autres routeurs ...
 
 // Gestion des erreurs

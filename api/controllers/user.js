@@ -1,7 +1,8 @@
-const User = require('../models/user'); 
+const User = require('../models/user'); // Assurez-vous que le chemin vers votre modèle User est correct
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+// Créer un nouvel utilisateur
 const createUser = async (req, res) => {
     try {
         const { password } = req.body;
@@ -19,6 +20,7 @@ const createUser = async (req, res) => {
     }
 };
 
+// Connecter un utilisateur
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -35,9 +37,9 @@ const loginUser = async (req, res) => {
     }
 };
 
-
+// Exporter les fonctions pour les utiliser dans les fichiers de route
 module.exports = {
     createUser,
     loginUser
-    // Exporter d'autres fonctions ici
+    // Vous pouvez ajouter ici d'autres fonctions liées aux utilisateurs
 };
