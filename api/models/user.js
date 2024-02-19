@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     first_name: { type: String, default: '' },
     last_name: { type: String, default: '' },
-    email: { type: String, default: '' },
+    email: { type: String, unique: true, required: true },
     password: { type: String, required: true },
     phone_number: { type: String, default: '' },
     gender: { type: String, default: '' },
@@ -13,14 +13,10 @@ const userSchema = new Schema({
     address: { type: String, default: '' },
     profile_picture: { type: String, default: '' },
     points: { type: Number, default: 0 },
-    contacts: [{ contact_id: { type: Schema.Types.ObjectId, ref: 'User' } }],
     badges: [{
         badge_id: { type: Schema.Types.ObjectId, ref: 'Badge' },
-        badge_name: { type: String, default: '' }
+        acquired_date: { type: Date, default: Date.now }
     }]
 });
 
-// Création du modèle User à partir du schéma
 const User = mongoose.model('User', userSchema);
-
-module.exports = User;

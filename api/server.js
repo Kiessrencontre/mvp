@@ -1,48 +1,35 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv');
-const Sentry = require('@sentry/node');
 require('dotenv').config();
 
-// Importer les routeurs
-const userRouter = require('./controllers/user');
-//const matchRouter = require('./controllers/match'); // Supposons que vous ayez un contrôleur pour les matchs
-// ... importer d'autres routeurs ...
-
-// Initialiser Sentry pour la surveillance des erreurs
-//Sentry.init({ dsn: process.env.SENTRY_DSN });
-
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware pour analyser les requêtes JSON
-app.use(express.json());
-
-// Middleware pour analyser les cookies
-app.use(cookieParser());
-
-// Middleware CORS pour gérer les requêtes cross-origin
-app.use(cors());
+// Middleware pour parser le corps des requêtes en JSON
+app.use(bodyParser.json());
 
 // Connexion à MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("MongoDB connecté"))
-    .catch(err => console.error("Erreur de connexion à MongoDB", err));
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connexion à MongoDB réussie'))
+    .catch((error) => console.error('Connexion à MongoDB échouée', error));
 
-// Utiliser les routeurs
-app.use(userRouter);
-//app.use(matchRouter);
-// ... utiliser d'autres routeurs ...
-
-// Gestion des erreurs
-app.use((err, req, res, next) => {
-    Sentry.captureException(err);
-    res.status(500).send({ message: err.message });
+// Exemple de route de base
+app.get('/', (req, res) => {
+    res.send('Bienvenue sur notre API');
 });
 
-// Démarrer le serveur
-const PORT = process.env.PORT || 3000;
+// Importation des routes
+// Assurez-vous d'avoir un fichier pour chaque groupe de routes (users, messages, etc.)
+const userRoutes = require('./routes/userRoutes');
+const messageRoutes = require('./routes/messageRoutes');
+const badgeRoutes = require('./routes/badgeRoutes');
+// Utilisation des routes importées
+app.use('/api/users', userRoutes);
+app.use('/api/messages', messageRoutes);
+app.use('/api/badges', badgeRoutes);
+
+// Démarrage du serveur
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);
 });
