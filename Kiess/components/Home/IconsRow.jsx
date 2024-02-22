@@ -11,7 +11,7 @@ const IconRow = ({ icons, onIconPress }) => {
             onPress={() => onIconPress(icon)} // Passer l'objet icon complet
           >
             <Image source={icon.image} style={tw`w-16 h-16`} />
-            <Text style={tw`text-white`}>{icon.name}</Text>
+            <Text style={tw`text-black text-center`}>{icon.name}</Text>
           </TouchableOpacity>
         </View>
       ))}

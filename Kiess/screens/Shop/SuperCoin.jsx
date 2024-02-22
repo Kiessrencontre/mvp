@@ -13,7 +13,7 @@ export default function SuperCoin({ navigation }) {
 
       <View style={tw`flex-row w-full items-center justify-center `}>
         <View>
-        <TouchableOpacity onPress={() => navigation.navigate('ShopPreniumPlus')}><IconBack/></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ShopPremiumPlus')}><IconBack/></TouchableOpacity>
         </View>
 
         <View style={tw` mx-15 `}>

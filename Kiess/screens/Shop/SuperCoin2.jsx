@@ -22,7 +22,7 @@ export default function SuperCoin2({ navigation }) {
 
         <View>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Shop')}><IconFront/></TouchableOpacity>
+        onPress={() => navigation.navigate('ShopClassic')}><IconFront/></TouchableOpacity>
         </View>
           
         

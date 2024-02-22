@@ -14,7 +14,7 @@ export default function ShopPreniumPlus({navigation}) {
       <View style={tw`flex-row w-full items-center justify-center `}>
         <View>
         <TouchableOpacity
-        onPress={() => navigation.navigate('ShopPrenium')}><IconBack/></TouchableOpacity>
+        onPress={() => navigation.navigate('ShopPremium')}><IconBack/></TouchableOpacity>
         </View>
 
         <View style={tw` mx-15 `}>

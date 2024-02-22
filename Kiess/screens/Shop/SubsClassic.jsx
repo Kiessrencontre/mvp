@@ -21,7 +21,7 @@ export default function ShopClassic({ navigation }) {
 
         <View>
         <TouchableOpacity
-        onPress={() => navigation.navigate('ShopPrenium')}><IconFront/></TouchableOpacity>
+        onPress={() => navigation.navigate('ShopPremium')}><IconFront/></TouchableOpacity>
         </View>
           
         

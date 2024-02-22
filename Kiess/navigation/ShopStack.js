@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ShopClassic from '../screens/Shop/SubsClassic';
-import ShopPremium from '../screens/Shop/SubsPrenium';
-import ShopPremiumPlus from '../screens/Shop/SubsPreniumPlus';
+import ShopPremium from '../screens/Shop/SubsPremium';
+import ShopPremiumPlus from '../screens/Shop/SubsPremiumPlus';
 import SuperCoin from '../screens/Shop/SuperCoin';
 import SuperCoin2 from '../screens/Shop/SuperCoin2';
 

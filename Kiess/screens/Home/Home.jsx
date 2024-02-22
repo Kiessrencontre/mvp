@@ -13,7 +13,7 @@ const Home = () => {
     { image: require("../../assets/Group194.png"), name: "Julia",point:"150" },
     { image: require("../../assets/Group194.png"), name: "Marc" ,point:"200" },
     { image: require("../../assets/Group194.png"), name: "from",point:"200" },
-    { image: require("../../assets/Group194.png"), name: "to",point:"200" },
+    { image: require("../../assets/Group196.png"), name: "to",point:"200" },
     
     // ... plus d'icônes ...
   ];
