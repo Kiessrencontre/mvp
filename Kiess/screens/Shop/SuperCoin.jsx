@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import tw from "twrnc";
-import IconBack from '../../components/IconBack';
-import IconFront from '../../components/IconFront';
+import IconBack from '../../components/Icons/IconBack';
+import IconFront from '../../components/Icons/IconFront';
 import KiessSP from'../../assets/Boutique/SuperPieces.png';
 
 

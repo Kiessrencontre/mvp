@@ -1,7 +1,7 @@
 // AppNavigator.js
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeScreen from '../screens/Home/HomeScreen';
+import HomeScreen from '../screens/HomeS/HomeScreenRegister';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import LoginHome from '../Login/LoginHome';
 import WelcomeKiess from '../screens/Register/WelcomeKiess';
@@ -22,7 +22,7 @@ export const firstFiveRoutes = ['Welcome', 'PhoneNumber', 'Mail', 'FirstName', '
 
 const AppNavigator = createStackNavigator(
   {
-    Home: {
+    HomeScreen: {
       screen: HomeScreen,
     },
     Profile: {

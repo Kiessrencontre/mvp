@@ -1,171 +1,163 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet,ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  ImageBackground,
+  ScrollView,
+} from "react-native";
+import tw from "twrnc";
 
-const image = require('../../assets/fondProfil.jpeg')
+import { SvgUri } from "react-native-svg";
+
+const image = require("../../assets/fondProfil.jpeg");
+// import JardinageBadge from '../../assets/Badges/Jardinage.svg';
+
+// Supposons que ceci est votre tableau de badges
+const badges = [
+  {
+    id: 1,
+    icon: require("../../assets/Badges/Jardinage.png"),
+    label: "Badge 1",
+  },
+  {
+    id: 2,
+    icon: require("../../assets/Badges/Aubergine.png"),
+    label: "Badge 2",
+  },
+  {
+    id: 3,
+    icon: require("../../assets/Badges/Concombre.png"),
+    label: "Badge 3",
+  },
+  {
+    id: 4,
+    icon: require("../../assets/Badges/JeudePapier.png"),
+    label: "Badge 4",
+  },
+  {
+    id: 5,
+    icon: require("../../assets/Badges/Jardinage.png"),
+    label: "Badge 5",
+  },
+  {
+    id: 6,
+    icon: require("../../assets/Badges/Graffiti.png"),
+    label: "Badge 6",
+  },
+  {
+    id: 1,
+    icon: require("../../assets/Badges/Jardinage.png"),
+    label: "Badge 1",
+  },
+  {
+    id: 2,
+    icon: require("../../assets/Badges/Aubergine.png"),
+    label: "Badge 2",
+  },
+  {
+    id: 3,
+    icon: require("../../assets/Badges/Concombre.png"),
+    label: "Badge 3",
+  },
+  {
+    id: 4,
+    icon: require("../../assets/Badges/JeudePapier.png"),
+    label: "Badge 4",
+  },
+  {
+    id: 5,
+    icon: require("../../assets/Badges/Jardinage.png"),
+    label: "Badge 5",
+  },
+  {
+    id: 6,
+    icon: require("../../assets/Badges/Graffiti.png"),
+    label: "Badge 6",
+  },
+];
 
 export default function CardP() {
   return (
-    
-      <View style={styles.containerG}>
-
-      <View style={styles.container}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      
-        <View style={styles.header}>
-          <View>
-            <Image
-              source={require("../../assets/logo.png")}
-              style={styles.pp}
-              />
+    <View style={tw`flex-1 bg-white p-4`}>
+      <View style={tw`flex-row items-center justify-between`}></View>
+      <View style={tw`mt-4 p-4 bg-white rounded-lg shadow-md`}>
+        <View style={tw`flex-row items-center justify-between mt-4 p-4`}>
+          <View style={tw``}>
+            <Text style={tw`text-2xl font-bold`}>Lisouille</Text>
+            <Text style={tw`text-sm text-gray-500`}>20 ans | Lyon</Text>
           </View>
-          <View>
-            <Text style={styles.colorW}>Léa</Text>
-            <Text style={styles.colorW}>Vendeuse (23 ans)</Text>
-            <Text style={styles.colorW}>Lyon (69)</Text>
+
+          <View style={tw`flex-nowrap items-end justify-between`}>
+            <Text style={tw`text-3xl font-bold text-red-500`}>80%</Text>
+            <Text style={tw`text-xs`}>de taux de compatibilité</Text>
           </View>
         </View>
 
-
-        <View style={styles.phrase}>
-
-        <Text style={[styles.tagline, styles.colorB]}>
-          Sa phrase d’accroche
-        </Text>
-        <Text style={styles.colorB}>
-          Ici pour rencontrer une personne cool, ouverte et qui n’a pas peur de
-          se lancer
-        </Text>
+        <View style={tw`p-4`}>
+          <View style={tw`bg-gray-300 h-px`} />
         </View>
 
-
-        <View style={styles.audioMatch}>
-
-        <Text style={[styles.audioLabel, styles.colorW]}>Son Audio Match:</Text>
-        {/* Placeholder for the audio player. You might use a package like `react-native-sound` for this. */}
-        <View style={styles.audioPlaceholder} />
+        <View style={tw`p-4`}>
+          <Text style={tw`font-semibold`}>SA PHRASE D'ACCROCHE</Text>
+          <Text style={tw`text-sm`}>
+            Ici pour rencontrer une personne cool, ouverte et qui n'a pas peur
+            de se lancer
+          </Text>
         </View>
 
-        <View style={styles.badgesContainer}>
-        <Text style={[styles.badgesLabel, styles.colorB]}>Ses badges</Text>
-          {/* Repeat this for each badge */}
-            <View style={styles.badge}>               
-            <Image source={require("../../assets/logo.png")}style={styles.badgeIcon}/>
-            <Image source={require("../../assets/logo.png")}style={styles.badgeIcon}/>
-            <Image source={require("../../assets/logo.png")}style={styles.badgeIcon}/>
+        <View style={tw` p-4`}>
+          <Text style={tw`font-semibold`}>SON AUDIO MATCH</Text>
+          <View style={tw`w-full bg-gray-200 rounded-full h-3 mt-2`}>
+            <View
+              style={tw`bg-purple-600 h-3 rounded-full`} /* You will need to set the width dynamically based on the audio match percentage */
+            ></View>
+          </View>
+        </View>
+
+        <View style={tw`mt-2 p-4 `}>
+          <Text style={tw`font-semibold`}>SES BADGES (30)</Text>
+          <View style={tw` mt-2 bg-white rounded-lg shadow-md`}>
+            <View style={tw`flex-row flex-wrap justify-center`}>
+              {badges.slice(0, 6).map(
+                (
+                  badge // Affiche les 6 premiers badges
+                ) => (
+                  <View key={badge.id} style={tw`mx-1 my-2`}>
+                    <TouchableOpacity style={tw`items-center`}>
+                      <Image source={badge.icon} style={tw`w-8 h-8`} />
+                    </TouchableOpacity>
+                  </View>
+                )
+              )}
             </View>
-
+            <View style={tw`flex-row flex-wrap justify-center`}>
+              {badges.slice(6, 12).map(
+                (
+                  badge // Affiche les badges de 7 à 12
+                ) => (
+                  <View key={badge.id} style={tw`mx-1 mb-2`}>
+                    <TouchableOpacity style={tw`items-center`}>
+                      <Image source={badge.icon} style={tw`w-8 h-8`} />
+                    </TouchableOpacity>
+                  </View>
+                )
+              )}
+            </View>
+          </View>
         </View>
-              </ImageBackground>
       </View>
-</View>
 
+      <View style={tw`flex-row justify-between mt-4`}>
+        <TouchableOpacity style={tw`py-2 px-4 bg-gray-200 rounded-full`}>
+          <Text>NON MERCI</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={tw`py-2 px-4 bg-red-500 rounded-full`}>
+          <Text style={tw`text-white`}>JE MATCH</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-    container: {
-    marginTop: 24, // a modiffier quand nav faite
-    height: 472, // Set the height as required
-    width: 358,
-    // padding: 15,
-    backgroundColor: "purple",
-    borderRadius: 15, // Add borderRadius here
-        overflow: 'hidden',
-    alignItems: "center",
-    // justifyContent: "space-between", // Distribute the child elements equally
-  },
-    containerG: {
-    alignItems: "center",
-    backgroundColor:"white",
-  },
-  image: {
-    // flex: 1,
-    justifyContent: 'center',
-    width: 358, // This will match the width of the container
-    height: 472,
-
-  },
-  header: {
-    maxHeight:100,
-    width: "100%",
-    flex: 1, // Assign some flex value
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start", // Align children to the start
-    backgroundColor: "black",
-    paddingLeft: 22, // Add some padding to move content inside the header
-    
-  },
-  pp: {
-    width: 73,
-    height: 73,
-    marginBottom: 10, // Add some margin for spacing
-    marginRight: 14, 
-  },
-  logo: {
-    width: 40,
-    height: 40,
-    marginBottom: 10, // Add some margin for spacing
-  },
-  tagline: {
-    fontWeight: "bold",
-    fontSize: 18,
-    marginBottom: 5, // Add some margin for spacing
-    marginLeft:28,
-  },
-  audioMatch:{
-    // flex:1,
-    width: 346,
-    height: 142,
-    backgroundColor: "green",
-
-  },
-  audioLabel: {
-    fontWeight: "bold",
-    fontSize: 18,
-    marginTop: 10, // Add some margin for spacing
-    marginLeft:48,
-
-  },
-  audioPlaceholder: {
-    width: 305,
-    height: 65,
-    backgroundColor: "lightgray",
-    borderRadius: 10,
-    marginVertical: 10,
-    alignItems:"center",
-    justifyContent:"center",
-    marginLeft:21,
-  },
-  badgesLabel: {
-    fontWeight: "bold",
-    fontSize: 18,
-    marginTop: 10, // Add some margin for spacing
-  },
-  badgesContainer: {
-    maxHeight:73,
-    justifyContent: "space-between",
-    width: "100%",
-    alignItems: "center",
-  },
-  badgeIcon: {
-    width: 30,
-    height: 30,
-  },
-  badge:{
-    flexDirection: "row", 
-  },
-  colorW: {
-    color: "white",
-  },
-  colorB: {
-    color: "black",
-  },
-  phrase:{
-    marginTop:26,
-    marginBottom:23,
-  }
-
-});
-
-

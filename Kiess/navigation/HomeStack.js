@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../screens/Home/Home';
+import HomeScreen from '../screens/HomeS/HomeScreen';
 import ChatScreen from '../screens/Chat/ChatScreen';
 import PhoneNumber from '../screens/Register/PhoneNumber';
 import BlockMatch from '../screens/Register/BlockMatch';
@@ -17,7 +17,8 @@ export default function HomeStackScreen() {
                     <TopBar
                         goBack={() => navigation.goBack()} />)
             }}>
-            <HomeStack.Screen name="Home" component={Home} />
+            <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
+            {/* <HomeStack.Screen name="HomeScreen" component={} /> */}
             <HomeStack.Screen name="ChatScreen" component={ChatScreen}
             options={{ headerShown: false }}
             />

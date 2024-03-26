@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import tw from 'twrnc';
-import IconBack from '../../components/IconBack';
+import IconBack from '../../components/Icons/IconBack';
 // import IconMenuDots from '../components/IconMenuDots'; // Votre icône pour les 3 petits points
 
 const CustomTopBar = ({ navigation, userImage, userName, userPoints }) => {

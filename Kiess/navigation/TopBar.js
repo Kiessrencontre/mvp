@@ -1,32 +1,42 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, Image } from 'react-native';
 import tw from 'twrnc';
-import IconBack from '../components/IconBack';
+import IconBack from '../components/Icons/IconBack';
+import IconKiess from '../components/Icons/IconKiessName';
 
-const TopBar = ({ goBack, logoSource, rightButtonSource }) => {
-    logoSource =require('../assets/Group.png')
-    rightButtonSource =require('../assets/Juliette.png')
+const TopBar = ({ goBack }) => {
+    const logoSource = require('../assets/Group.png'); // Logo
+    const rightButtonSource = require('../assets/Juliette.png'); // Bouton droit
+
     return (
-        <View style={tw`flex-row items-center justify-around w-100 pb-4 pt-10 bg-white `}>
-            <TouchableOpacity onPress={goBack}>
-                <IconBack/>
+        <View style={tw`flex-row items-center justify-between w-full bg-white pt-10 pb-4`}>
+            {/* Section gauche */}
+            <TouchableOpacity onPress={goBack} style={tw`w-1/3 justify-center items-start px-4`}>
+                <IconBack />
             </TouchableOpacity>
 
-            <Image
-                source={logoSource} // Remplacez par le chemin de votre logo
-                style={tw`w-20 h-10`}
-            />
+            {/* Section centrale */}
+            <View style={tw`w-1/3 justify-center items-center`}>
+                {/* <Image
+                    source={logoSource}
+                    resizeMode="contain"
+                    style={tw`w-20 h-10`}
+                /> */}
+                <IconKiess />
+            </View>
 
-            <TouchableOpacity>
-                <View style={tw`bg-red-500 w-10 h-10 rounded-full`}>
+            {/* Section droite */}
+            <View style={tw`w-1/3 justify-center items-end px-5`}>
+                <TouchableOpacity onPress={() => { /* Votre logique ici */ }}>
                     <Image
-                        source={rightButtonSource} // Remplacez par le chemin de votre image pour le bouton rond
-                        style={tw`w-6 h-6`}
+                        source={rightButtonSource}
+                        style={tw`w-10 h-10`}
                     />
-                </View>
-            </TouchableOpacity>
+                    {/* Utilisez Text ou autre composant si nécessaire */}
+                </TouchableOpacity>
+            </View>
         </View>
     );
-}
+};
 
 export default TopBar;

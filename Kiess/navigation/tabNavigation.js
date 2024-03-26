@@ -5,11 +5,11 @@ import ProfilStackScreen from './ProfileStack';
 import MatchStackScreen from './MatchStack';
 import ShopStackScreen from './ShopStack';
 import SettingsStackScreen from './SettingsStack';
-import IconHome from '../components/IconHome';
-import IconProfl from '../components/IconProfil';
-import IconKiess from '../components/IconKiess';
-import IconBoutique from '../components/IconBoutique';
-import IconReglage from '../components/IconReglage';
+import IconHome from '../components/Icons/IconHome';
+import IconKiess from '../components/Icons/IconKiess';
+import IconBoutique from '../components/Icons/IconBoutique';
+import IconReglage from '../components/Icons/IconReglage';
+import IconProfil from '../components/Icons/IconProfil';
 
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
@@ -39,9 +39,9 @@ export default function MyTabs() {
             })}
             tabBar={(props) => <BottomTabBar {...props} style={{ height: 98 }} />}
         >
-            
+
             <Tab.Screen
-                name="HomeTab"
+                name="Home"
                 component={HomeStackScreen}
                 options={({ route }) => ({
                     tabBarIcon: ({ focused }) => (
@@ -50,20 +50,42 @@ export default function MyTabs() {
                     tabBarStyle: {
                         display: getFocusedRouteNameFromRoute(route) === 'ChatScreen' ? 'none' : 'flex',
                     },
+                    tabBarLabelStyle: {
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                        marginTop: -20, // Décale le label de 5 pixels vers le bas
+                        marginBottom: 20, // Décale le label de 5 pixels vers le bas
+                    },
+                    tabBarActiveTintColor: 'red', // La couleur du label lorsque l'onglet est sélectionné
+                    tabBarInactiveTintColor: 'gray', // La couleur du label lorsque l'onglet n'est pas sélectionné
                 })}
             />
 
             <Tab.Screen name="Profil" component={ProfilStackScreen}
-                options={{
+                options={({ route }) => ({
                     tabBarIcon: ({ focused }) => (
-                        <IconProfl fill={focused ? focusedColor : defaultColor} />)
-                }} />
+                        <IconProfil fill={focused ? focusedColor : defaultColor} />
+                    ),
+                    tabBarStyle: {
+                        display: getFocusedRouteNameFromRoute(route) === 'Profile' ? 'none' : 'flex',
+                    },
+                    tabBarLabelStyle: {
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                        marginTop: -20, // Décale le label de 5 pixels vers le bas
+                        marginBottom: 20, // Décale le label de 5 pixels vers le bas
+                    },
+                    tabBarActiveTintColor: 'red', // La couleur du label lorsque l'onglet est sélectionné
+                    tabBarInactiveTintColor: 'gray',
+                })} />
 
             <Tab.Screen name="MatchTab" component={MatchStackScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <IconKiess fill={focused ? focusedColor : defaultColor} />
                     ),
+                    tabBarLabel: '',
+                    
                 }}
             />
             <Tab.Screen name="Boutique" component={ShopStackScreen}
@@ -71,12 +93,28 @@ export default function MyTabs() {
                     tabBarIcon: ({ focused }) => (
                         <IconBoutique fill={focused ? focusedColor : defaultColor} />
                     ),
+                    tabBarLabelStyle: {
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                        marginTop: -20, // Décale le label de 5 pixels vers le bas
+                        marginBottom: 20, // Décale le label de 5 pixels vers le bas
+                    },
+                    tabBarActiveTintColor: 'red', // La couleur du label lorsque l'onglet est sélectionné
+                    tabBarInactiveTintColor: 'gray',
                 }} />
             <Tab.Screen name="Réglages" component={SettingsStackScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <IconReglage fill={focused ? focusedColor : defaultColor} />
                     ),
+                    tabBarLabelStyle: {
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                        marginTop: -20, // Décale le label de 5 pixels vers le bas
+                        marginBottom: 20, // Décale le label de 5 pixels vers le bas
+                    },
+                    tabBarActiveTintColor: 'red', // La couleur du label lorsque l'onglet est sélectionné
+                    tabBarInactiveTintColor: 'gray',
                 }} />
         </Tab.Navigator>
     );
