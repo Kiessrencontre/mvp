@@ -1,98 +1,118 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, } from 'react-native';
+import Discovery from './Discovery'; 
+import PersonalInfo from './PersonalInfo';
+import SettingSvg from '../../components/Setting/IconsSetting';
+import AmiFamilleSvg from '../../components/Setting/IconsAmiFamille';
+import IconsDecouverte from '../../components/Setting/IconsDecouverte';
+import IconsVous from '../../components/Setting/IconsVous';
+import IconSetting from '../../components/Icons/iconSetting';
+import IconSettingOpen from '../../components/Icons/IconSettingOpen';
 
-export default function Setting({ navigation }) {
-  const handleNavigation = (screen) => {
-    navigation.navigate(screen);
+const settingsOptions = [
+  { name: 'Vous', screen: 'PersonalInfo', Component: PersonalInfo, Icon: IconsVous },
+  { name: 'Découverte', screen: 'Discovery', Component: Discovery, Icon: IconsDecouverte },
+  { name: 'Ami & famille', screen: 'FamilyFriends', Icon: AmiFamilleSvg },
+  // For other options without specific icons, we'll use SettingSvg as the default icon
+  { name: 'Notifications', screen: 'NotificationsSetting', Icon: SettingSvg },
+  { name: 'Restaurer mes achats', screen: 'RestorePurchases', Icon: SettingSvg },
+  { name: 'Contact', screen: 'Contact', Icon: SettingSvg },
+  { name: 'Communauté', screen: 'Community', Icon: SettingSvg },
+  { name: 'Confidentialité', screen: 'Privacy', Icon: SettingSvg },
+  { name: 'Mentions légales', screen: 'LegalMentions', Icon: SettingSvg },
+];
+
+const renderIcon = (name) => {
+  switch(name) {
+    case 'Vous':
+      return <IconsVous style={styles.icon} />;
+    case 'Découverte':
+      return <IconsDecouverte style={styles.icon} />;
+    case 'Ami & famille':
+      return <AmiFamilleSvg style={styles.icon} />
+    default:
+      return <SettingSvg style={styles.icon} />;
+  }
+};
+
+const SettingItem = ({ name, Component, isExpanded, onExpand, Icon, index }) => {
+  const backgroundColor = index % 2 === 0 ? '#f1f1f1' : 'white';
+
+  return (
+    <View style={[styles.itemContainer, { backgroundColor }]}>
+      <TouchableOpacity onPress={onExpand} style={styles.item}>
+        {renderIcon(name)}
+        <Text style={styles.itemText}>{name}</Text>
+        {isExpanded ? <IconSettingOpen /> : <IconSetting />}
+      </TouchableOpacity>
+      {isExpanded && Component && <Component />}
+    </View>
+  );
+};
+
+export default function Settings({ navigation }) {
+  const [expandedOption, setExpandedOption] = useState(null);
+
+  const handleExpand = (option) => {
+    setExpandedOption(expandedOption === option ? null : option);
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <View style={styles.header}>
-          {/* Replace with your actual logo and avatar image paths */}
-          <Image source={{ uri: 'URL_OF_THE_KVESS_LOGO' }} style={styles.logo} />
-          <TouchableOpacity onPress={() => handleNavigation('JulietteSettings')}>
-            <Image source={{ uri: 'URL_OF_THE_JULIETTE_IMAGE' }} style={styles.avatar} />
-          </TouchableOpacity>
-        </View>
-
-        {[
-          { name: 'Vous', screen: 'PersonalInfo' },
-          { name: 'Découverte', screen: 'Discovery' },
-          { name: 'Ami & famille', screen: 'FamilyFriends' },
-          { name: 'Notifications', screen: 'NotificationsSetting' },
-          { name: 'Restaurer mes achats', screen: 'RestorePurchases' },
-          { name: 'Contact', screen: 'Contact' },
-          { name: 'Communauté', screen: 'Community' },
-          { name: 'Confidentialité', screen: 'Privacy' },
-          { name: 'Mentions légales', screen: 'LegalMentions' },
-        ].map((item, index) => (
-          <TouchableOpacity key={index} style={styles.button} onPress={() => handleNavigation(item.screen)}>
-            <Text>{item.name}</Text>
-          </TouchableOpacity>
-        ))}
-
-        <TouchableOpacity style={styles.logoutButton}>
-          <Text>Se déconnecter</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.deleteButton}>
-          <Text>Supprimer mon compte</Text>
-        </TouchableOpacity>
-      </ScrollView>
-
-      {/* Footer with app version */}
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>KVESS version 02.230920200</Text>
-      </View>
-    </View>
+    <ScrollView style={styles.container}
+    contentContainerStyle={styles.scrollViewContent}>
+      {settingsOptions.map((option, index) => (
+        <SettingItem
+          key={option.name}
+          name={option.name}
+          onExpand={() => handleExpand(option)}
+          isExpanded={expandedOption === option}
+          Component={option.Component}
+          index={index} 
+        />
+      ))}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // width: '100%',
     backgroundColor: 'white',
+    
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 20,
-    paddingBottom: 0, // Remove bottom padding
+  scrollViewContent: {
+    alignItems: 'center', // Centre les enfants horizontalement
+    paddingVertical: 10, // Ajoutez un espace vertical si nécessaire
   },
-  logo: {
-    width: 80, // Adjust to match your logo size
-    height: 30, // Adjust to match your logo size
-  },
-  avatar: {
-    width: 40, // Adjust to match your avatar size
-    height: 40, // Adjust to match your avatar size
-  },
-  button: {
-    padding: 20,
+  itemContainer: {
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: '#f1f1f1',
+    width: 360, // Assurez-vous que cette largeur correspond à vos besoins
+    alignSelf: 'center', // Centrez le conteneur
+    borderRadius: 10,
   },
-  logoutButton: {
-    padding: 20,
-    backgroundColor: '#ff0000',
-    marginTop: 20,
-  },
-  deleteButton: {
-    padding: 20,
-    backgroundColor: '#ff0000',
-    marginTop: 10,
-  },
-  footer: {
-    padding: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
+  item: {
+    flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 15,
   },
-  footerText: {
-    color: '#888',
-    fontSize: 12,
+  icon: {
+    marginRight: 10,
+    width: 24,  // Adjust based on your SVG size
+    height: 24, // Adjust based on your SVG size
+    marginRight: 10, // Add some space between the icon and the text
+  },
+  itemText: {
+    fontSize: 16,
+    color: '#333333',
+    flex: 1, 
+    
+  },
+  additionalInfo: {
+    fontSize: 14,
+    color: '#666666',
+    paddingTop: 5,
   },
 });

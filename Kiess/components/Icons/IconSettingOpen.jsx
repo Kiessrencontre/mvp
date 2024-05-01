@@ -1,0 +1,15 @@
+import React from 'react';
+import Svg, { Path } from 'react-native-svg';
+
+const IconSettingOpen = () => (
+  <Svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+    <Path
+      d="M0.58469 1L4.23252 6.27919C4.51441 6.68528 5.074 6.68528 5.35589 6.27919L8.99951 1"
+      stroke="black"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </Svg>
+);
+
+export default IconSettingOpen;

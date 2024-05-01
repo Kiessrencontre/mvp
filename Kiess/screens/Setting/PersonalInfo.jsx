@@ -20,13 +20,7 @@ export default function PersonalInfo({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       {/* En-tête avec logo et avatar */}
-      <View style={styles.header}>
-        {/* Remplacez par les chemins d'accès réels de vos images */}
-        <Image source={{ uri: 'URL_OF_THE_KVESS_LOGO' }} style={styles.logo} />
-        <TouchableOpacity onPress={() => handleNavigation('JulietteSettings')}>
-          <Image source={{ uri: 'URL_OF_THE_JULIETTE_IMAGE' }} style={styles.avatar} />
-        </TouchableOpacity>
-      </View>
+      
       
       {/* Informations de l'utilisateur */}
       <View style={styles.infoContainer}>
@@ -56,39 +50,25 @@ function InfoRow({ label, value }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: 'white',
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 20,
-    paddingBottom: 0, // Remove bottom padding
-  },
-  logo: {
-    width: 80, // Adjust to match your logo size
-    height: 30, // Adjust to match your logo size
-  },
-  avatar: {
-    width: 40, // Adjust to match your avatar size
-    height: 40, // Adjust to match your avatar size
-  },
+ 
+  
   button: {
     padding: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
   },
-  logoutButton: {
-    padding: 20,
-    backgroundColor: '#ff0000',
-    marginTop: 20,
-  },
-  deleteButton: {
-    padding: 20,
-    backgroundColor: '#ff0000',
-    marginTop: 10,
-  },
+  // logoutButton: {
+  //   padding: 20,
+  //   backgroundColor: '#ff0000',
+  //   marginTop: 20,
+  // },
+  // deleteButton: {
+  //   padding: 20,
+  //   backgroundColor: '#ff0000',
+  //   marginTop: 10,
+  // },
   footer: {
     padding: 20,
     borderTopWidth: 1,

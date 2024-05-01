@@ -3,6 +3,7 @@ import Setting from '../screens/Setting/Setting';
 import PersonalInfo from '../screens/Setting/PersonalInfo';
 import Discovery from '../screens/Setting/Discovery';
 import NotificationSettings from '../screens/Setting/Notifications';
+import TopBar from './TopBar';
 
 
 const SettingsStack = createNativeStackNavigator();
@@ -10,7 +11,10 @@ const SettingsStack = createNativeStackNavigator();
 export default function SettingsStackScreen() {
     return (
         <SettingsStack.Navigator
-            screenOptions={{ headerShown: false }}
+            screenOptions={{ headerShown: true,
+                header: ({ navigation }) => (
+                  <TopBar
+                    goBack={() => navigation.goBack()} />) }}
         >
             <SettingsStack.Screen name="Setting" component={Setting} />
             <SettingsStack.Screen name="PersonalInfo" component={PersonalInfo} />

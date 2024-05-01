@@ -67,10 +67,9 @@ export default function Discovery() {
 
       {/* Liste des éléments ici */}
       {/* Utilisez TouchableOpacity pour chaque élément de liste comme ci-dessous */}
-      <TouchableOpacity style={styles.listItem}>
+      {/* <TouchableOpacity style={styles.listItem}>
         <Text style={styles.label}>Ami & famille</Text>
-        {/* Ajoutez une icône de flèche ici si nécessaire */}
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       {/* Répétez le TouchableOpacity pour les autres éléments de la liste */}
       {/* ... */}
